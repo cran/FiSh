@@ -7,16 +7,16 @@
 \title{FiSh: Fisher-Shannon Method}
 \description{
 Proposes non-parametric estimates of the Fisher information measure and the 
-              Shannon entropy power. The state-of-the-art studies related to the Fisher-Shannon 
-              measures, with new analytical formulas for positive unimodal skewed distributions 
-              are presented in Guignard et al. <arXiv:1912.02452>. A 'python' version of this 
+              Shannon entropy power. More theoretical and implementation details can be found
+              in Guignard et al. <doi:10.3389/feart.2020.00255>. A 'python' version of this
               work is available on 'github' and 'PyPi' ('FiShPy').
 }
 \details{
-This R code was developed and used for the following paper:
+If this R code is used for academic research, please cite the following paper where it was developed:
 
 F. Guignard, M. Laib, F. Amato, M. Kanevski, Advanced analysis of temporal data using Fisher-Shannon information:
-theoretical development and application in geosciences, \href{https://arxiv.org/abs/1912.02452}{arXiv:1912.02452}.
+theoretical development and application in geosciences, 2020,
+\doi{10.3389/feart.2020.00255}{Frontiers in Earth Science, 8:255}.
 }
 \references{
 S. J. Sheather and M. C. Jones (1991). A reliable data-based bandwidth selection method for kernel density
@@ -28,17 +28,11 @@ C. Vignat, J.F Bercher (2003). Analysis of signals in the Fisher–Shannon infor
 312, 190, 27 – 33.
 
 F. Guignard, M. Laib, F. Amato, M. Kanevski, Advanced analysis of temporal data using Fisher-Shannon information:
-theoretical development and application in geosciences, \href{https://arxiv.org/abs/1912.02452}{arXiv:1912.02452}.
-}
-\seealso{
-Useful links:
-\itemize{
-  \item \url{https://FiShInfo.github.io/}
-}
-
+theoretical development and application in geosciences, 2020,
+\doi{10.3389/feart.2020.00255}{Frontiers in Earth Science, 8:255}.
 }
 \author{
-Fabian Guignard \email{fabian.guignard@bluemail.ch} and
+Fabian Guignard \email{fabian.guignard@protonmail.ch} and
 
 Mohamed Laib \email{laib.med@gmail.com}
 

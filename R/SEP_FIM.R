@@ -28,9 +28,9 @@
 #'
 #'
 #' @references
-#' F. Guignard, M. Laib, F. Amato, M. Kanevski, Advanced analysis of temporal
-#' data using Fisher-Shannon information: theoretical development and application
-#' in geosciences, \href{https://arxiv.org/abs/1912.02452}{arXiv:1912.02452}.
+#' F. Guignard, M. Laib, F. Amato, M. Kanevski, Advanced analysis of temporal data using Fisher-Shannon information:
+#' theoretical development and application in geosciences, 2020,
+#' \doi{10.3389/feart.2020.00255}{Frontiers in Earth Science, 8:255}.
 #'
 #'
 #' @import fda.usc KernSmooth
@@ -39,9 +39,17 @@
 SEP_FIM <- function(x, h, log_trsf=FALSE, resol=1000, tol = .Machine$double.eps){
   if (log_trsf){
     if(any(x<0)){stop("Data must be positive when log_trsf is TRUE.")}
-    return(SEP_FIM_log(x, h, tol=tol))
+    res <- SEP_FIM_log(x, h, tol=tol)
+    if(res[1,3] < 1){
+      warning("FSC < 1. The problem could be related to kernel density estimation, bad bandwidth selection, or there are not enough points.")}
+    return(res)
+
   } else{
-    return(SEP_FIM_nolog(x, h, tol=tol))
+    res <- SEP_FIM_nolog(x, h, tol=tol)
+    if(res[1,3] < 1){
+      warning("FSC < 1. The problem could be related to kernel density estimation, bad bandwidth selection, or there are not enough points.")}
+
+    return(res)
   }
 
 }
@@ -70,8 +78,9 @@ SEP_FIM_nolog <- function(x,  h, resol=1000, tol = .Machine$double.eps){
   H <- ifelse(f>tol, -f*log(f), 0)
   H <- int.simpson(fdata(H,Xgrid))
   SEP<-(1/(2*pi*exp(1)))*exp(2*H)
+  FSC <- SEP*FIM
 
-  return(data.frame(SEP=round(SEP,4), FIM=round(FIM,4), FSC=round(SEP*FIM,4)))
+  return(data.frame(SEP=round(SEP,4), FIM=round(FIM,4), FSC=round(FSC,4)))
 }
 
 
@@ -94,19 +103,15 @@ SEP_FIM_log<-function(x,  h, resol=1000, tol = .Machine$double.eps){
   Accu_f <- Accu_f/h
   Accu_f_drv <- (Accu_f_drv/h^3)+(Accu_f)
 
-  #FIM <- (Accu_f_drv^2/Accu_f)
   FIM<- ifelse(Accu_f > tol, Accu_f_drv^2/Accu_f, 0)
   FIM <- FIM/back_Xgrid^3
-  #FIM<-integrate.xy(back_Xgrid, FIM)
   FIM <- int.simpson(fdata(FIM,back_Xgrid))
   FIM <- FIM*(1/(sqrt(2*pi)*n))
 
   f <- Accu_f/(sqrt(2*pi)*n*back_Xgrid)
-  #H <- -f*log(f)
-  #H<-integrate.xy(back_Xgrid, H)
   H <- ifelse(f>tol, -f*log(f), 0)
   H <- int.simpson(fdata(H,back_Xgrid))
   SEP<-(1/(2*pi*exp(1)))*exp(2*H)
-
-  return(data.frame(SEP=round(SEP,4), FIM=round(FIM,4), FSC=round(SEP*FIM,4)))
+  FSC <- SEP*FIM
+  return(data.frame(SEP=round(SEP,4), FIM=round(FIM,4), FSC=round(FSC,4)))
 }

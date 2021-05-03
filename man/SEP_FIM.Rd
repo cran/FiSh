@@ -41,7 +41,7 @@ SEP_FIM(x, h)
 
 }
 \references{
-F. Guignard, M. Laib, F. Amato, M. Kanevski, Advanced analysis of temporal
-data using Fisher-Shannon information: theoretical development and application
-in geosciences, \href{https://arxiv.org/abs/1912.02452}{arXiv:1912.02452}.
+F. Guignard, M. Laib, F. Amato, M. Kanevski, Advanced analysis of temporal data using Fisher-Shannon information:
+theoretical development and application in geosciences, 2020,
+\doi{10.3389/feart.2020.00255}{Frontiers in Earth Science, 8:255}.
 }

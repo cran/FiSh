@@ -8,17 +8,19 @@
 #' 312, 190, 27 – 33.
 #'
 #' F. Guignard, M. Laib, F. Amato, M. Kanevski, Advanced analysis of temporal data using Fisher-Shannon information:
-#' theoretical development and application in geosciences, \href{https://arxiv.org/abs/1912.02452}{arXiv:1912.02452}.
+#' theoretical development and application in geosciences, 2020,
+#' \doi{10.3389/feart.2020.00255}{Frontiers in Earth Science, 8:255}.
 #'
 #' @details
 #'
-#' This R code was developed and used for the following paper:
+#' If this R code is used for academic research, please cite the following paper where it was developed:
 #'
 #' F. Guignard, M. Laib, F. Amato, M. Kanevski, Advanced analysis of temporal data using Fisher-Shannon information:
-#' theoretical development and application in geosciences, \href{https://arxiv.org/abs/1912.02452}{arXiv:1912.02452}.
+#' theoretical development and application in geosciences, 2020,
+#' \doi{10.3389/feart.2020.00255}{Frontiers in Earth Science, 8:255}.
 #'
 #' @author
-#' Fabian Guignard \email{fabian.guignard@@bluemail.ch} and
+#' Fabian Guignard \email{fabian.guignard@@protonmail.ch} and
 #'
 #' Mohamed Laib \email{laib.med@@gmail.com}
 #'
